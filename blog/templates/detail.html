@@ -1,0 +1,26 @@
+<!-- detial page 입니다. -->
+<h1>detail page - {{ blog.id }}번째 글</h1>
+
+<div class="container">
+    <h1>{{ blog.title }}</h1>
+    <p>{{ blog.pub_date }}</p>
+    <p>{{ blog.body }}</p>
+
+    <br>
+    <a href="{% url 'comment_new' blog.pk %}">댓글 추가하기</a>
+
+    {% for comment in blog.comments.all %}
+        <div class="comment">
+            <li>
+                {{ comment.text }}<small> by </small>{{ comment.author }}</strong>, {{ comment.created_at }}</small>
+            </li>
+        </div>
+    
+        {% empty %}
+            <p>아직 댓글이 없습니다! :/ </p>
+    {% endfor %}
+
+    <hr>
+    <a href="{% url 'home' %}">돌아가기</a>
+
+</div>

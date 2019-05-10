@@ -1,0 +1,9 @@
+{% block comment %}
+    <h1>New comment</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <input type="submit" class="save btn btn-defalut">
+    </form>
+{% endlock %}
